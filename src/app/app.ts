@@ -1,12 +1,39 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+interface FormDataModel {
+  name: string;
+  email: string;
+  password: string;
+  gender: 'זכר' | 'נקבה' | '';
+}
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('forms');
+export class AppComponent {
+  formModel: FormDataModel = {
+    name: '',
+    email: '',
+    password: '',
+    gender: ''
+  };
+
+  submittedData: FormDataModel | null = null;
+  passwordVisible = false;
+
+  togglePassword() {
+    this.passwordVisible = !this.passwordVisible;
+  }
+
+  onSubmit(form: any) {
+    if (form.valid) {
+      this.submittedData = { ...this.formModel };
+    }
+  }
 }

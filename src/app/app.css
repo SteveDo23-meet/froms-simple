@@ -1,0 +1,21 @@
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+  .error {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+  }
+  .pw-row {
+    display: flex;
+    gap: 8px;
+  }
+  .result {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
